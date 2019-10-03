@@ -71,16 +71,16 @@ public class EstadisticasDaoImpl implements EstadisticasDao{
 	
 	@Override
 	public double getValorMercadoMedio() {
-		Double VMMedio = 0.0;
+		Double vMMedio = 0.0;
 		
 		String sql = "select sum(e.valorMercado)"
 				+ " 	from Estadisticas e";
 
 		Query<Double> query = session.createQuery(sql, Double.class);
 		
-		VMMedio = query.uniqueResult()/20;
+		vMMedio = query.uniqueResult()/20;
 					
-		return VMMedio;
+		return vMMedio;
 	}
 
 }

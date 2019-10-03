@@ -20,9 +20,7 @@ public class PartidosDaoImpl implements PartidosDao {
 
 	@Override
 	public void create(Partidos partido) {
-	//	session = HibernateUtils.getTransaction();
 		session.save(partido);
-	//	HibernateUtils.doCommit(session);
 	}
 
 	@Override
@@ -47,10 +45,7 @@ public class PartidosDaoImpl implements PartidosDao {
 
 	@Override
 	public void updateResult(Partidos partido) {
-	//	session = HibernateUtils.getTransaction();
-		session.update(partido);
-	//	HibernateUtils.doCommit(session);
-		
+		session.update(partido);		
 	}
 
 	@Override
@@ -74,7 +69,7 @@ public class PartidosDaoImpl implements PartidosDao {
 	@Override
 	public Long getPartidosCasa(Equipos equipo, Jornadas jornada) {
 		
-		Long partidos = 0L;
+		Long partidos;
 		
 		String sql = "select count(p.idJornada)"
 				+ " 	from Partidos p "
@@ -92,7 +87,7 @@ public class PartidosDaoImpl implements PartidosDao {
 	
 	public Long getPartidosFuera(Equipos equipo, Jornadas jornada) {
 		
-		Long partidos = 0L;
+		Long partidos;
 		
 		String sql = "select count(p.idJornada)"
 				+ " 	from Partidos p "

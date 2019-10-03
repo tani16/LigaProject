@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import com.dani.dao.ClasificacionDao;
-import com.dani.daoimpl.ClasificacionDaoImpl;
 import com.dani.entidad.Clasificacion;
 import com.dani.entidad.Estadisticas;
 import com.dani.entidad.Jornadas;
@@ -26,7 +24,7 @@ class AppPlayJornada {
 	    throw new IllegalStateException("Utility class");
 	}
 	
-	public static void execute() throws TwitterException, IOException {
+	public static void execute() throws IOException {
 		Session session = HibernateUtils.getTransaction();
 		Jornadas jornada = PlayMethods.searchNextJornada();
 		

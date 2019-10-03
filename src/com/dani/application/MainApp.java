@@ -6,6 +6,11 @@ import java.util.List;
 import org.hibernate.Session;
 
 import com.dani.dao.ClasificacionDao;
+import com.dani.dao.EquiposDao;
+import com.dani.dao.EstadisticasDao;
+import com.dani.dao.JornadasDao;
+import com.dani.dao.PartidosDao;
+import com.dani.dao.ResultadosDao;
 import com.dani.daoimpl.ClasificacionDaoImpl;
 import com.dani.daoimpl.EquiposDaoImpl;
 import com.dani.daoimpl.EstadisticasDaoImpl;
@@ -28,33 +33,19 @@ public class MainApp {
 	public static void main(String[] args) throws TwitterException, IOException {
 		
 		Session session = HibernateUtils.getTransaction();
-		//AppCargaDatos.execute();
 		AppPlayJornada.execute();
-		
-		
-		//pruebas();
 	}
 
 	private static void pruebas() {
-		// TODO Auto-generated method stub
-		ResultadosDaoImpl resultadosDao = new ResultadosDaoImpl();
-		PartidosDaoImpl partidosDao = new PartidosDaoImpl();
-		EquiposDaoImpl equiposDao = new EquiposDaoImpl();
-		JornadasDaoImpl jornadasDao = new JornadasDaoImpl();
-		EstadisticasDaoImpl estadisticasDao = new EstadisticasDaoImpl();
-		
-//		Long goles = resultadosDao.getGolesTotalesCasa();
+		ResultadosDao resultadosDao = new ResultadosDaoImpl();
+		PartidosDao partidosDao = new PartidosDaoImpl();
+		EquiposDao equiposDao = new EquiposDaoImpl();
+		JornadasDao jornadasDao = new JornadasDaoImpl();
+		EstadisticasDao estadisticasDao = new EstadisticasDaoImpl();
 		
 		Equipos equipoC = equiposDao.getEquipoById(7);
 		Equipos equipoF = equiposDao.getEquipoById(6);
 		Jornadas jornada = jornadasDao.nextJornada();
-//		
-//		partidosDao.getPartidosCasa(equipo,jornada);
-		
-//		Long goles = resultadosDao.getGolesFavorCasa(equipo);
-		
-//		Long goles = resultadosDao.getGolesContraFuera(equipo);
-//		double phiVM = staticsC.getValorMercado() / (estadisticasDao.getValorMercadoMedio());
 		
 		Estadisticas staticsC = estadisticasDao.getStatics(equipoC);
 		Estadisticas staticsF = estadisticasDao.getStatics(equipoF);
