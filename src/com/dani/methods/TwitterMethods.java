@@ -8,7 +8,7 @@ import twitter4j.TwitterFactory;
 
 public class TwitterMethods {
 	
-	private final static String ENTER = "\r\n";
+	final private static String ENTER = "\r\n";
 	
 	private TwitterMethods() {
 		throw new IllegalStateException("Utility class");
@@ -35,7 +35,7 @@ public class TwitterMethods {
 		post.append(" " + ENTER);
 		post.append("#" + partido.getEquipoC().getAbreviatura() + " #" + partido.getEquipoF().getAbreviatura() + ENTER);
 		post.append("#LaLiga #LaLigaSantander #LFP #LigaBot " + ENTER );
-		post.append("#RealMadrid #RealSociedad #Atleti #Athletic " + ENTER );
+		post.append("#RealSociedad #Athletic #RealMadrid #Granada " + ENTER );
 
 		
 		return post.toString();
