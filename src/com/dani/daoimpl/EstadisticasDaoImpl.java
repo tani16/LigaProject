@@ -57,7 +57,7 @@ public class EstadisticasDaoImpl implements EstadisticasDao{
 
 	@Override
 	public double getPresupuestoMedio() {
-		Double presupuestoMedio = 0.0;
+		Double presupuestoMedio;
 		
 		String sql = "select sum(e.presupuesto)"
 				+ " 	from Estadisticas e";
@@ -71,7 +71,7 @@ public class EstadisticasDaoImpl implements EstadisticasDao{
 	
 	@Override
 	public double getValorMercadoMedio() {
-		Double vMMedio = 0.0;
+		Double vMMedio;
 		
 		String sql = "select sum(e.valorMercado)"
 				+ " 	from Estadisticas e";
