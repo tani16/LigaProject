@@ -16,8 +16,6 @@ import com.dani.methods.PlayMethods;
 import com.dani.methods.TwitterMethods;
 import com.dani.util.HibernateUtils;
 
-import twitter4j.TwitterException;
-
 class AppPlayJornada {
 
 	private AppPlayJornada() {

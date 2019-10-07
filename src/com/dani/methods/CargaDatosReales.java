@@ -63,7 +63,7 @@ public class CargaDatosReales {
 
 		String[] equipos = rawData.get(0).split(" - ");
 		String nameC = equipos[0];
-		String nameF  = equipos[1].replaceAll(" en directo", "");
+		String nameF  = equipos[1].replace(" en directo", "");
 		
 		Equipos equipoC = equiposDao.getEquipoByAsName(nameC);
 		Equipos equipoF = equiposDao.getEquipoByAsName(nameF);
