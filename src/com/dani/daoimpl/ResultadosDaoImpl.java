@@ -5,7 +5,6 @@ import org.hibernate.query.Query;
 
 import com.dani.dao.ResultadosDao;
 import com.dani.entidad.Equipos;
-import com.dani.entidad.Partidos;
 import com.dani.entidad.Resultados;
 import com.dani.util.HibernateUtils;
 
@@ -27,9 +26,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 
 	@Override
 	public void save(Resultados resultado) {
-	//	session = HibernateUtils.getTransaction();
 		session.save(resultado);
-	//	HibernateUtils.doCommit(session);
 		
 	}
 
@@ -42,7 +39,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 
 	@Override
 	public Long getGolesFavorCasa() {
-		Long golesTotales = 0L;
+		Long golesTotales;
 		
 		String sql = "select sum(r.golesCReal)"
 				+ " 	from Resultados r";
@@ -57,7 +54,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 
 	@Override
 	public Long getGolesFavorCasa(Equipos equipo) {
-		Long golesTotales = 0L;
+		Long golesTotales;
 		
 		String sql = "select sum(r.golesCReal)"
 				+ " 	from Resultados r, Partidos p"
@@ -75,7 +72,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 
 	@Override
 	public Long getGolesContraFuera(Equipos equipo) {
-		Long golesTotales = 0L;
+		Long golesTotales;
 		
 		String sql = "select sum(r.golesCReal)"
 				+ " 	from Resultados r, Partidos p"
@@ -92,7 +89,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 	
 	@Override
 	public Long getGolesFavorFuera() {
-		Long golesTotales = 0L;
+		Long golesTotales;
 		
 		String sql = "select sum(r.golesFReal)"
 				+ " 	from Resultados r";
@@ -107,7 +104,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 
 	@Override
 	public Long getGolesFavorFuera(Equipos equipo) {
-		Long golesTotales = 0L;
+		Long golesTotales;
 		
 		String sql = "select sum(r.golesFReal)"
 				+ " 	from Resultados r, Partidos p"
@@ -124,7 +121,7 @@ public class ResultadosDaoImpl implements ResultadosDao {
 	
 	@Override
 	public Long getGolesContraCasa(Equipos equipo) {
-		Long golesTotales = 0L;
+		Long golesTotales;
 		
 		String sql = "select sum(r.golesFReal)"
 				+ " 	from Resultados r, Partidos p"

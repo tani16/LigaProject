@@ -47,17 +47,13 @@ public class EstadisticasDaoImpl implements EstadisticasDao{
 
 	@Override
 	public void save(Estadisticas stats) {
-
-	//	session = HibernateUtils.getTransaction();
-		session.save(stats);
-	//	HibernateUtils.doCommit(session);
-		
+		session.save(stats);		
 	}
 
 
 	@Override
 	public double getPresupuestoMedio() {
-		Double presupuestoMedio = 0.0;
+		Double presupuestoMedio;
 		
 		String sql = "select sum(e.presupuesto)"
 				+ " 	from Estadisticas e";
@@ -71,16 +67,16 @@ public class EstadisticasDaoImpl implements EstadisticasDao{
 	
 	@Override
 	public double getValorMercadoMedio() {
-		Double VMMedio = 0.0;
+		Double vMMedio;
 		
 		String sql = "select sum(e.valorMercado)"
 				+ " 	from Estadisticas e";
 
 		Query<Double> query = session.createQuery(sql, Double.class);
 		
-		VMMedio = query.uniqueResult()/20;
+		vMMedio = query.uniqueResult()/20;
 					
-		return VMMedio;
+		return vMMedio;
 	}
 
 }

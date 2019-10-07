@@ -8,7 +8,7 @@ import twitter4j.TwitterFactory;
 
 public class TwitterMethods {
 	
-	private final static String ENTER = "\r\n";
+	private static final String ENTER = "\r\n";
 	
 	private TwitterMethods() {
 		throw new IllegalStateException("Utility class");
@@ -39,9 +39,6 @@ public class TwitterMethods {
 
 		
 		return post.toString();
-//		return "Beta - Jornada " + partido.getIdJornada().getIdJornada() + ENTER +
-//			   partido.getEquipoC().getTwitter() + " " + partido.getIdResultado().getGolesC() + " - " +
-//			   partido.getIdResultado().getGolesF() + " " + partido.getEquipoF().getTwitter();				
 		
 	}
 }

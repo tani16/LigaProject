@@ -12,7 +12,6 @@ import com.dani.util.HibernateUtils;
 public class AppDatosReales {
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		Session session = HibernateUtils.getTransaction();
 		cargaDatosReales(6);
 		HibernateUtils.doCommit(session);

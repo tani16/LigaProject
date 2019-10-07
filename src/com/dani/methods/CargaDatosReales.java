@@ -33,9 +33,9 @@ public class CargaDatosReales {
 	public static Map<String, List<String>> takeDataWeb(int jornada) throws IOException {
 		
 		Map<String, List<String>> datos = new HashMap<>();
-		List<String> values = new ArrayList<>();
+		List<String> values;
 		
-		String URL = "https://resultados.as.com/resultados/futbol/primera/2019_2020/jornada/regular_a_" + jornada + "/";
+		final String URL = "https://resultados.as.com/resultados/futbol/primera/2019_2020/jornada/regular_a_" + jornada + "/";
 		
 		Document doc = Jsoup.connect(URL).userAgent("Mozilla/5.0").timeout(100000).get();
 		
@@ -43,7 +43,7 @@ public class CargaDatosReales {
 		
 		int aux = 1;
 		for (Element resultado : resultados) {
-			values = new ArrayList<String>();
+			values = new ArrayList<>();
 			values.add(resultado.attr("title"));
 			values.add(resultado.text());
 			String key = "partido_" + aux;
@@ -63,7 +63,7 @@ public class CargaDatosReales {
 
 		String[] equipos = rawData.get(0).split(" - ");
 		String nameC = equipos[0];
-		String nameF  = equipos[1].replaceAll(" en directo", "");
+		String nameF  = equipos[1].replace(" en directo", "");
 		
 		Equipos equipoC = equiposDao.getEquipoByAsName(nameC);
 		Equipos equipoF = equiposDao.getEquipoByAsName(nameF);
